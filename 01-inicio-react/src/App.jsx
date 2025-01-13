@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      <div className='min-h-screen bg-gray-100 p-8'>
+      <div className='min-h-screen bg-gray-400 p-8'>
         <h1 className='text-3xl font-bold text-center mb-20'>
           Ejemplos de componentes y estados en react
         </h1>
