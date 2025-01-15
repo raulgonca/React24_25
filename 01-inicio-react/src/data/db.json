@@ -1,0 +1,78 @@
+[
+    {
+      "id": 1,
+      "titulo": "Curso de JavaScript Avanzado",
+      "precio": 29.99,
+      "tags": ["JavaScript", "Frontend", "Web"],
+      "imagen": "https://example.com/images/js-avanzado.jpg"
+    },
+
+    {
+      "id": 2,
+      "titulo": "Python para Principiantes",
+      "precio": 19.99,
+      "tags": ["Python", "Backend", "Data Science"],
+      "imagen": "https://example.com/images/python-principiantes.jpg"
+    },
+
+    {
+      "id": 3,
+      "titulo": "Introducción a Java",
+      "precio": 24.99,
+      "tags": ["Java", "OOP", "Backend"],
+      "imagen": "https://example.com/images/java-intro.jpg"
+    },
+
+    {
+      "id": 4,
+      "titulo": "Desarrollo con C#",
+      "precio": 34.99,
+      "tags": ["C#", "Microsoft", "Desktop"],
+      "imagen": "https://example.com/images/csharp-dev.jpg"
+    },
+
+    {
+      "id": 5,
+      "titulo": "Domina TypeScript",
+      "precio": 39.99,
+      "tags": ["TypeScript", "JavaScript", "Frontend"],
+      "imagen": "https://example.com/images/typescript-domina.jpg"
+    },
+
+    {
+      "id": 6,
+      "titulo": "Aprende Ruby desde Cero",
+      "precio": 22.99,
+      "tags": ["Ruby", "Web", "Backend"],
+      "imagen": "https://example.com/images/ruby-desde-cero.jpg"
+    },
+    {
+      "id": 7,
+      "titulo": "Curso Práctico de PHP",
+      "precio": 18.99,
+      "tags": ["PHP", "Backend", "Web"],
+      "imagen": "https://example.com/images/php-practico.jpg"
+    },
+    {
+      "id": 8,
+      "titulo": "Fundamentos de C++",
+      "precio": 27.99,
+      "tags": ["C++", "GameDev", "Desktop"],
+      "imagen": "https://example.com/images/cpp-fundamentos.jpg"
+    },
+    {
+      "id": 9,
+      "titulo": "Swift para Aplicaciones iOS",
+      "precio": 49.99,
+      "tags": ["Swift", "iOS", "Mobile"],
+      "imagen": "https://example.com/images/swift-ios.jpg"
+    },
+    {
+      "id": 10,
+      "titulo": "Kotlin para Android",
+      "precio": 44.99,
+      "tags": ["Kotlin", "Android", "Mobile"],
+      "imagen": "https://example.com/images/kotlin-android.jpg"
+    }
+  ]
+  

@@ -6,11 +6,7 @@ const Contador = () => {
 
   // Funciones
   const handleClick = (numero) => {
-    if (numero > 0) {
-      setContador((prevContador) => prevContador + numero);
-    } else if (numero < 0 && contador > 0) {
-      setContador((prevContador) => prevContador + numero);
-    }
+    setContador((preValue) => preValue + numero);
   };
 
   return (
