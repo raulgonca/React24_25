@@ -66,24 +66,6 @@ const ProductList = () => {
             </ul>
           )}
         </div>
-        
-        
-        
-        
-        
-        
-        {/* <p>
-          {products.length > 0 &&
-            products.map((product) => {
-              // return (
-              //     <div key={product.id}>
-              //         <p>{product.title}</p>
-              //         <p>{product.price}</p>
-              //         <p>{product.tags}</p>
-              //     </div>
-              // )
-            })} 
-        </p>*/}
       </div>
     </>
   );
