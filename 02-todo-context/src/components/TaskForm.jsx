@@ -29,8 +29,6 @@ const TaskForm = () => {
             onChange={(e) => setTaskName(e.target.value)}
             placeholder="Escribe aquí la tarea"
             className="w-full p-2 mb-4 border border-gray-300 rounded-lg"
-
-            
             />
         <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 ">Añadir tarea</button>
       

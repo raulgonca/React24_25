@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 /**
  *  Una tarea tipica ha de ser :
@@ -8,16 +8,22 @@ import { createContext, useState } from "react";
  */
 
 // creacion del contexto
+
 export const TaskContext = createContext();
 
 // crear el provider del contexto
 export const TaskProvider = ({ children }) => {
   // hoks
 
-  const [task, setTask] = useState(() => {
+  const [tasks, setTasks] = useState(() => {
     const savedTask = localStorage.getItem("tasks");
-    return savedTask ? JSON.parse(savedTasks) : [];
+    return savedTask ? JSON.parse(savedTask) : [];
   });
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
+
 
   //funciones
   //acciones sobre una tarea
@@ -28,27 +34,28 @@ export const TaskProvider = ({ children }) => {
   // no olvidar que en este caso estara guardado en el LocalStorage
 
   const addTask = (task) => {
-    setTask((prevTasks) => [...prevTasks, task]);
+    setTasks((prevTasks) => [...prevTasks, task]);
+    // localStorage.setItem("tasks", JSON.stringify(task));
   };
 
   const removeTask = (taskId) => {
-    setTask((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
     // localStorage.setItem("tasks", JSON.stringify(task));
   };
 
   const editTask = (taskId, task) => {};
 
 
-  const toogleTaskcompletion = (taskId) => {
-    setTask((prevTasks) =>
+  const toggleTaskCompletion = (taskId) => {
+    setTasks((prevTasks) =>
       prevTasks.map((task) =>
-        task.id === taskId ? { ...task, completed: !task.completed } : task
+        tasks.id === taskId ? { ...task, completed: !task.completed } : tasks
       )
     );
   };
 
   return (
-    <TaskContext.Provider value={{task, addTask, removeTask, editTask, toogleTaskcompletion}}>
+    <TaskContext.Provider value={{tasks, addTask, removeTask, editTask, toggleTaskCompletion}}>
         {children}
     </TaskContext.Provider>
   );
