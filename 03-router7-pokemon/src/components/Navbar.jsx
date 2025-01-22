@@ -1,0 +1,28 @@
+import { NavLink } from "react-router-dom"
+import { ROUTES } from "../routes/paths"
+
+const Navbar = () => {
+
+  /** 
+   * NavLink se utiliza para mobernos entre rytas 
+   * navLink añade "active" a className cuando la ruta es la actual
+   * isActive  es un prop de react router dom  que dice si la ruta esta activa
+   */
+
+  return (
+    <>
+      <nav className="bg-gradient-to-r from-rose-500 to-pink-500 shadow-lg">
+        <div className="container mx-auto flex justify-between items-center p-4">
+          <div className="space-x-4">
+          <NavLink to={ROUTES.HOME} className={( { isActive } ) =>`text-white hover:text-red-600 ${isActive ? "font-bold" : "" }`} >Inicio APP </NavLink>
+          <NavLink to={ROUTES.SEARCH} className="text-white text-2xl font-bold" >Buscar Pokemon </NavLink>
+          <NavLink to={ROUTES.FAVORITES} className="text-white text-2xl font-bold" >Favoritos </NavLink>
+          </div>
+        </div>
+        
+      </nav>
+    </>
+  )
+}
+
+export default Navbar
