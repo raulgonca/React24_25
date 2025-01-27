@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { ROUTES } from "../routes/paths";
 
 const Home = () => {
   const [pokemon, setPokemon] = useState([]);
@@ -43,16 +45,27 @@ const Home = () => {
           {pokemon.map((pokemon) => (
             <div
               key={pokemon.id}
-              className="bg-white rounded-xl p-6 hover:shadow-sm"
+              className="bg-white rounded-xl p-6 hover:shadow-sm flex flex-col items-center justify-center"
             >
-              <div>
+              <div className="mb-4">
                 <img
                   src={pokemon.sprites.front_default}
                   alt={pokemon.name}
                   className="w-20 h-20 rounded-full"
                 />
               </div>
-              <h2 className="text-xl font-bold mt-4">{pokemon.name}</h2>
+              <h2 className="text-xl font-bold capitalize">{pokemon.name}</h2>
+              <div className="flex justify-center space-x-2 mt-4">
+                <button
+                  className="bg-red-500 hover:bg-slate-400 text-white px-4 py-2 rounded">
+                    Favorites
+                </button>
+                <Link 
+                  to={`${ROUTES.SEARCH}/${pokemon.name}`}
+                  className="bg-green-600 hover:bg-slate-400 text-white px-4 py-2 rounded">
+                    Ver Detalles
+                </Link>
+              </div>
             </div>
           ))}
         </div>

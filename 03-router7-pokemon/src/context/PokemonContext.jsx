@@ -6,8 +6,14 @@ export function PokemonProvider({ children }) {
     //Hooks
     const [favorites, setfavorites] = useState([]);
     
-    const addFavorite = (pokemon) => {
-        setfavorites([...favorites, pokemon]);
+    const addFavorites = (pokemon) => {
+        //verificamos si el pokemon ya existe en la lista de favoritos
+        if (favorites.some(poke => poke.id === pokemon.id)) {
+            //lanzamos error con sonner
+            Sonner.error("Ya existe en favoritos");
+            return;
+        }
+        setfavorites((prevFavoritos) => [...favoritos, pokemon]);
     };
 
     const removeFromFavorite = (pokemonId) => {
