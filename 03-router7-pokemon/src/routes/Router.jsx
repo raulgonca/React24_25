@@ -37,7 +37,7 @@ export const router = createBrowserRouter([
                         if (!response.ok) {
                             throw new Error(`Failed to fetch pokemon ${params.name}`);
                         }
-                        return response.json();
+                        return  await response.json();
 
                     } catch (error) {}
                 },
