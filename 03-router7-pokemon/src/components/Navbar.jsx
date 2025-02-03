@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom"
-import { ROUTES } from "../routes/paths"
+import { ROUTES } from "../router/paths"
 
 const Navbar = () => {
 
