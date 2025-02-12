@@ -3,6 +3,9 @@ import { useFetch } from "../hooks/useFetch";
 import { getPopularMovies } from "../services/tmdb";
 import { Link } from "react-router-dom";
 import MovieCard from "../components/MovieCard";
+import { PacmanLoader } from "react-spinners";
+
+
 
 const Home = () => {
   const [page, setPage] = useState(1);
@@ -11,15 +14,20 @@ const Home = () => {
     [page]
   );
 
-  //si se produce un error que hago
+  const handlePageChange = (newPage) => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    setPage(newPage);
+  };
+
+  // si se produce un error qué hago
   if (error) {
     return (
       <div className="text-center py-10">
         <p className="text-2xl font-bold text-red-500">
-          Error al obtener los datos. ( {error} )
+          Error al cargar las películas {error}
         </p>
-        <Link to="/" className="text-blue-500 hover:underline">
-          Volver a la página principal
+        <Link to="/" className="text-blue-500">
+          Volver al inicio
         </Link>
       </div>
     );
@@ -27,28 +35,43 @@ const Home = () => {
 
   return (
     <div className="space-y-8">
-      <header>
+      <header className="text-center">
         <h1 className="text-4xl font-bold text-sky-950">
           Bienvenido al VideoClub DWEC
         </h1>
-
         <p className="mt-4 text-gray-800">
           Aquí podrás encontrar las películas más populares del momento
         </p>
       </header>
-
+      {/* sección de las películas */}
       <section>
-        <h2 className="text-2xl font-bold text-sky-900">
-          Películas Populares
-        </h2>
+        <h2 className="text-2xl font-bold text-sky-900">Películas populares</h2>
         {loading ? (
-          <div> Cargando... </div>
+          <PacmanLoader color="#2320d3" />
         ) : (
           <>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-              {data?.results?.map((movie) => {
-                <MovieCard key={movie.id} movie={movie} />;
-              })}
+            {/* Grid para las películas */}
+            <div className="grid grid-cols-2 gap-6  md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+              {data?.results?.map((movie) => (
+                // Aquí pinto las tarjetas
+                <MovieCard key={movie.id} movie={movie}/>
+              ))}
+            </div>
+            {/* Botones de paginación */}
+            <div className="flex justify-center mt-8 gap-2 mb-10">
+              <button 
+                onClick={() => handlePageChange(page-1)}
+                disabled={page === 1}
+                className="bg-sky-900 text-white px-4 py-2 rounded-lg hover:bg-sky-700">
+                  anterior
+              </button>
+              <span className="text-gray-800 font-bold px-4 py-2"> Pagina {data?.page} de {data?.total_pages} </span>
+              <button 
+                onClick={() => handlePageChange(page+1)}
+                disabled={page === data?.total_pages}
+                className="bg-sky-900 text-white px-4 py-2 rounded-lg hover:bg-sky-700">
+                  siguiente
+              </button>
             </div>
           </>
         )}
