@@ -16,7 +16,7 @@ const MovieCard = ({ movie }) => {
   };
   
   return (
-    <Link to={`movie/${movie.id}`} className="group">
+    <Link to={`/movie/${movie.id}`} className="group">
       <article className="card transform transfotm-transition duration-200 group-hover:scale-105">
         <div className="relative aspect-[2/3]">
           <img src={getImageURL(movie?.poster_path)} alt={movie?.title} 
@@ -41,7 +41,7 @@ const MovieCard = ({ movie }) => {
         </div>
       </article>
     </Link>
-  )
-}
+  );
+};
 
-export default MovieCard
+export default MovieCard;

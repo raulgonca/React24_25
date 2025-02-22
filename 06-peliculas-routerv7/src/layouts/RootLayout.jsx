@@ -16,14 +16,28 @@ const RootLayout = () => {
                   VideoClub
                 </NavLink>
                 <NavLink 
+                  to="/movies" 
+                  className="flex items-center space-x-2 hover:text-sky-300 transition-colors"
+                >
+                  <span>Películas</span>
+                </NavLink>
+                <NavLink 
                   to="/favorites" 
                   className="flex items-center space-x-2 hover:text-sky-300 transition-colors"
                 >
                   <span>Favoritas ({favorites.length})</span>
                 </NavLink>
-                
-                <NavLink>
-                  <span>Buscador de películas</span>
+                <NavLink 
+                  to="/search"
+                  className="flex items-center space-x-2 hover:text-sky-300 transition-colors"
+                >
+                  <span>Buscador</span>
+                </NavLink>
+                <NavLink 
+                  to="/reviews"
+                  className="flex items-center space-x-2 hover:text-sky-300 transition-colors"
+                >
+                  <span>Reseñas</span>
                 </NavLink>
               </div>
             </div>

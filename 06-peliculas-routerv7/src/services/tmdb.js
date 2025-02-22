@@ -5,6 +5,7 @@ const BASE_URL = import.meta.env.VITE_BASE_URL;
 const BASE_IMAGE_URL = import.meta.env.VITE_BASE_IMAGE_URL;
 
 
+
 //Tamaños de las imágenes
 export const SIZE ={
     POSTER: "w500",
@@ -28,9 +29,9 @@ const fetchFromAPI = async (endpoint, options={}) => {
     }
 };
 
-export const getPopularMovies = async (page = 1) => {
-    return await fetchFromAPI("/movie/popular" , {page});
-}
+export const getPopularMovies = async (page = 1, options = {}) => {
+    return await fetchFromAPI("/movie/popular", { page, ...options });
+};
 
 export const getMovieDetails = async (id) => {
     return await fetchFromAPI(`/movie/${id}`);
@@ -43,3 +44,18 @@ export const getMovieVideos = async (id) => {
 export const getImageURL = (path, size = SIZE.POSTER) => {
     return `${BASE_IMAGE_URL}/${size}${path}`;
 }
+
+export const searchMovies = async (query, page = 1) => {
+    return await fetchFromAPI("/search/movie", { query, page });
+};
+
+export const getGenres = async () => {
+    return await fetchFromAPI("/genre/movie/list");
+};
+
+export const getMoviesByGenre = async (page = 1, genreId) => {
+    return await fetchFromAPI("/discover/movie", {
+        page,
+        with_genres: genreId
+    });
+};

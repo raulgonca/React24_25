@@ -1,13 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import RootLayout from "../layouts/RootLayout";
 import Home from "../pages/Home";
-import Movielist from "../pages/Movielist";
+import MovieList from "../pages/MovieList";
 import ErrorPage from "../pages/ErrorPage";
 import MovieDetail from "../pages/MovieDetail";
 import Search from "../pages/Search";
 import Reviews from "../pages/Reviews";
 import Favorites from "../pages/Favorites";
-
 
 export const router = createBrowserRouter([
     {
@@ -21,7 +20,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "movies",
-                element: <Movielist />
+                element: <MovieList />
             },
             {
                 path: "movie/:id",
@@ -41,5 +40,4 @@ export const router = createBrowserRouter([
             }
         ]
     }
-]
-)
+]);
